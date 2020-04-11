@@ -26,13 +26,13 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-25fdb9ace0b1832513f4.js"
+    "url": "webpack-runtime-bd41ec2f5c3168e45f7f.js"
   },
   {
     "url": "framework-1cbcc4f69858806ac5db.js"
   },
   {
-    "url": "styles.5574e2ebc6d5eb4f3e0e.css"
+    "url": "styles.bcf26eaf5f9d21fd40fc.css"
   },
   {
     "url": "styles-c9311296e3482f548af7.js"
@@ -41,14 +41,14 @@ self.__precacheManifest = [
     "url": "532a2f07-13018990a2e4138941b5.js"
   },
   {
-    "url": "app-56c9215fb1b780faf5e6.js"
+    "url": "app-45b4927d7953c5336373.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-ba2871b72521cc775c21.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "8e8f6a5944280358d45b8e1af15f6990"
+    "revision": "12cb4fd2dec2def114ed01f773ee6656"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
@@ -56,11 +56,11 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "76630d35cbcb19362a1e05e3b598b3cb"
+    "revision": "b97705c49bfdc27aabaf4493fb1b5af1"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "aa5d001d4368ae5d8431541d5389193a"
+    "revision": "b56218a742a1bca3d31cdd010bb71071"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
@@ -79,12 +79,12 @@ const { NavigationRoute } = workbox.routing
 
 const navigationRoute = new NavigationRoute(async ({ event }) => {
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/reponame`), ``)
+  pathname = pathname.replace(new RegExp(`^/tmp_blog_test_githubio`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/reponame/app-56c9215fb1b780faf5e6.js`))) {
+  if (!resources || !(await caches.match(`/tmp_blog_test_githubio/app-45b4927d7953c5336373.js`))) {
     return await fetch(event.request)
   }
 
@@ -97,7 +97,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/reponame/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/tmp_blog_test_githubio/offline-plugin-app-shell-fallback/index.html`
   return await caches.match(offlineShell)
 })
 
