@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/tmp_blog_test_githubio",
   siteMetadata: {
     // edit below
     title: `ReproQuarantine`,
